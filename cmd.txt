@@ -1,0 +1,15 @@
+pop
+push 10000
+pop
+add
+pop
+push 256
+push 2147483640
+mult
+div
+add
+add
+add
+pop
+pop
+end!
