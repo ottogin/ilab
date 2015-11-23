@@ -1,16 +1,18 @@
-pop
-push 10000
-pop
+push 1
+push 2
+print
+push 3 
 add
+print
 pop
-push 256
-push 2147483640
+push 4
+push 5
+print
+dif
+print
 mult
-div
-add
-add
-add
+push 6
+print
 pop
-pop
-push 100020
+print
 end!

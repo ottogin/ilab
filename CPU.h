@@ -12,12 +12,13 @@ struct my_cpu{
 
 CPU* cpu_create();
 void cpu_delete(CPU* c);
-void cpu_push(CPU* c, int a);
-int  cpu_pop(CPU* c);
-int  cpu_get(CPU* c);
-void cpu_add(CPU* c);
-void cpu_mul(CPU* c);
-void cpu_dif(CPU* c);
-void cpu_div(CPU* c);
+void cpu_print(CPU* c, ...);
+void cpu_push(CPU* c, int a, ...);
+int  cpu_pop(CPU* c, ...);
+int  cpu_get(CPU* c, ...);
+void cpu_add(CPU* c, ...);
+void cpu_mul(CPU* c, ...);
+void cpu_dif(CPU* c, ...);
+void cpu_div(CPU* c, ...);
 
 #endif

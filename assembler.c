@@ -84,6 +84,9 @@ void decrypt(char* from , char* to)
 		#include"DCR.h"
 		fscanf(input, "%c", &byte);
 	}
+		
+	#undef DCR
+
 	fprintf(output, "end!\n");
 	fclose(input);
 	fclose(output);
