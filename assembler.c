@@ -2,14 +2,28 @@
 #define ASSEMBLER
 
 #include<stdio.h>
+#include<string.h>
+#include "error.c"
 
 void translate(char* from, char* to)
 {	
-	if(from == NULL)	from = "cmd.txt";
-	if(to == NULL)		to = "cmd.bin.txt";
+	if(from == NULL)   from = getenv("CPU_TRANSLATED_FROM");
+	if(to   == NULL)   to   = getenv("CPU_TRANSLATED_TO");
+	if(to == NULL)
+		exit_with_error(1);
+	if(from == NULL)
+		exit_with_error(2);
 	printf("Translating was started.\n");
 	FILE* input = fopen(from, "r");
 	FILE* output = fopen(to, "w");
+	
+	ASSERT_OK(file, input)
+	ASSERT_OK(file, output)
+
+	if(input == NULL)
+		exit_with_error(3);
+	if(output == NULL)
+		exit_with_error(4);
 	printf("Files was opened ");
 	if(input == NULL)
 	{
@@ -37,18 +51,26 @@ void translate(char* from, char* to)
                 printf("got %s loading...  ", cmd);
 	       	#include "TRN.h"
 	}
+
+	ASSERT_OK(file, input)
+	ASSERT_OK(file, output)	
+
 	fprintf(output, "%c", 0);
 	fclose(input);
 	fclose(output);	
-       	return;	
+	return;	
 }
 
-void decrypt(char* from , char* to)
+void decrypt(char* from, char* to)
 {	
-	if(from == NULL)	from = "cmd.bin.txt";
-        if(to == NULL)		to = "cmd_translated.txt";
+	if(from == NULL)	from = getenv("cpu_decrypt_from");
+	if(to == NULL)		to = getenv("cpu_decrypt_to");
 	FILE* input = fopen(from, "r");
 	FILE* output = fopen(to, "w");
+
+	ASSERT_OK(file, input)
+        ASSERT_OK(file, output)
+
 	char byte; 
 	printf("\nDecrypting was started.\n");
 	printf("Files was opened ");
@@ -85,6 +107,9 @@ void decrypt(char* from , char* to)
 		fscanf(input, "%c", &byte);
 	}
 		
+	ASSERT_OK(file, input)
+        ASSERT_OK(file, output)
+
 	#undef DCR
 
 	fprintf(output, "end!\n");

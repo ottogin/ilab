@@ -1,0 +1,4 @@
+translate_from="cmd.txt"
+translate_to="cmd.bin.txt"
+decrypt_from="cmd.bin.txt"
+decrypt_to="cmd_translated.txt"

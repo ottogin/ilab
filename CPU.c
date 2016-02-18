@@ -4,6 +4,7 @@
 #include "stack.c"
 #include <stdlib.h>
 #include <stdio.h>
+#include "error.c"
 #include "CPU.h"
 
 CPU* cpu_create()
